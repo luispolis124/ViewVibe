@@ -58,7 +58,7 @@
 <body>
     <div class="container">
         <h1>Criar Conta</h1>
-        <form action="/submit_criarconta" method="post">
+        <form id="createAccountForm">
             <input type="text" name="username" placeholder="Nome de Usuário" required>
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Senha" required>
@@ -68,5 +68,21 @@
     <footer>
         &copy; 2024 ViewVibe. Todos os direitos reservados.
     </footer>
+    <script>
+        document.getElementById('createAccountForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar o envio do formulário
+
+            const username = event.target.username.value;
+            const email = event.target.email.value;
+            const password = event.target.password.value;
+
+            // Simulando a criação de uma conta
+            console.log('Conta criada com sucesso:', { username, email, password });
+            alert('Conta criada com sucesso!');
+
+            // Redirecionar para a página de login
+            window.location.href = 'login.html';
+        });
+    </script>
 </body>
 </html>
